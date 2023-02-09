@@ -37,30 +37,30 @@ Latitude: 14.7628
 import json
 
 
-infile = open('school_data.json', 'r')
+infile = open('eq_data.json', 'r')
+quakes = json.load(infile)
+
+print(f"Number of earthquakes: {len(quakes['features'])}")
 
 
-print("Number of earthquakes:", len(infile["features"]))
-
-
-earthquake_dict = {}
-for eq in infile["features"]:
+eq_dict = {}
+for eq in quakes["features"]:
    if eq["properties"]["mag"] > 6:
       location = eq["properties"]["place"]
       magnitude = eq["properties"]["mag"]
       longitude = eq["geometry"]["coordinates"][0]
       latitude = eq["geometry"]["coordinates"][1]
-      earthquake_dict[location] = {
+      eq_dict[location] = {
          "Magnitude" : magnitude,
          "Longitude" : longitude,
          "Latitude" : latitude
       }
 
 
-print("earthquake_dict:", earthquake_dict)
+print("eq_dict:", eq_dict)
 
 
-for location, info in earthquake_dict.items():
+for location, info in eq_dict.items():
    print("Location:", location)
    print("Magnitude:", info["Magnitude"])
    print("Longitude:", info["Longitude"])
