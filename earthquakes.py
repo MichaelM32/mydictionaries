@@ -56,8 +56,8 @@ for eq in quakes["features"]:
          "Latitude" : latitude
       }
 
-
-print("eq_dict:", eq_dict)
+print()
+print("eq_dict New:", eq_dict)
 
 
 for location, info in eq_dict.items():

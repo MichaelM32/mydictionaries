@@ -71,7 +71,7 @@ def deal_cards(deck, number):
         card = random.choice(list(deck))
         value = deck[card]
         print(card)
-        hand_value ++ value
+        hand_value += value
 
     
 
